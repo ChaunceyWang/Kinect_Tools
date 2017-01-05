@@ -1,9 +1,9 @@
 #include <iostream>
-#include <fstream>  //¶ÁÈ¡txtÎÄ¼ş
+#include <fstream>  //è¯»å–txtæ–‡ä»¶
 #include <string>
 
 #include <XnCppWrapper.h>
-#include "opencv.hpp"
+//#include "opencv.hpp" // not necessary
 
 using namespace std;
 using namespace cv ;
@@ -14,9 +14,9 @@ int main( int argc, char** argv )
 {
 	XnStatus eResult = XN_STATUS_OK;
 	// 2. initial context
-	xn::Context mContext;         //Îï¼ş£ºÓÃí¹ÜÀíÕû‚€ OpenNI µÄ­h¾³ î‘BÒÔ¼°ÙYÔ´
-	eResult = mContext.Init();    //Ê¹ÓÃÇ°±ØíšÆğÊ¼»¯,ÕâÆÚ¼ä£¬ËùÓĞ OpenNIÏàêPµÄÄ£¿é•ş±»×xÈ¡¡¢·ÖÎö£¬Ö±µ½ºô½Ğ¡¸Shutdown()¡¹ß@‚€º¯Êı£¬²ÅáŒ·ÅËùÊ¹ÓÃµÄÙYÔ´
-	CheckOpenNIError( eResult, "initialize context" ); //¼ì²â´íÎó
+	xn::Context mContext;         //ç‰©ä»¶ï¼šç”¨ä¾†ç®¡ç†æ•´å€‹ OpenNI çš„ç’°å¢ƒç‹€æ…‹ä»¥åŠè³‡æº
+	eResult = mContext.Init();    //ä½¿ç”¨å‰å¿…é ˆèµ·å§‹åŒ–,è¿™æœŸé—´ï¼Œæ‰€æœ‰ OpenNIç›¸é—œçš„æ¨¡å—æœƒè¢«è®€å–ã€åˆ†æï¼Œç›´åˆ°å‘¼å«ã€ŒShutdown()ã€é€™å€‹å‡½æ•°ï¼Œæ‰é‡‹æ”¾æ‰€ä½¿ç”¨çš„è³‡æº
+	CheckOpenNIError( eResult, "initialize context" ); //æ£€æµ‹é”™è¯¯
 	if(eResult != XN_STATUS_OK) {return 0;}
 
 	// set map mode
@@ -39,7 +39,7 @@ int main( int argc, char** argv )
 	if( eResult == XN_STATUS_OK )
 	{
 		// 5. get the depth map
-		const XnDepthPixel*  pDepthMap = mDepthGenerator.GetDepthMap();//pDepthMapÊÇÒ»¸öÖ¸Ïòunsigned shortµÄÒ»Î¬Êı×é£¨³¤¶È£º640*480£©µÄÖ¸Õë
+		const XnDepthPixel*  pDepthMap = mDepthGenerator.GetDepthMap();//pDepthMapæ˜¯ä¸€ä¸ªæŒ‡å‘unsigned shortçš„ä¸€ç»´æ•°ç»„ï¼ˆé•¿åº¦ï¼š640*480ï¼‰çš„æŒ‡é’ˆ
 		XnPoint3D  proj[30720],real[30720];		
 		ofstream fout, f_x,f_y,f_z;
 		fout.open("D:/My Project/OpenNI/depthImage.txt" );
@@ -74,8 +74,8 @@ int main( int argc, char** argv )
 	}
 
 	// 7. stop
-	mContext.StopGeneratingAll();  //Í£Ö¹²úÉúÊı¾İ
-	mContext.Shutdown();           //ÖÕÖ¹Îï¼ş
+	mContext.StopGeneratingAll();  //åœæ­¢äº§ç”Ÿæ•°æ®
+	mContext.Shutdown();           //ç»ˆæ­¢ç‰©ä»¶
 
 	return 0;
 }
