@@ -1,4 +1,4 @@
-//  this is an example
+//  this is an example, need Opencv 3.0
 #include "MultiSourceReader.h"
 #include <iostream>
 using namespace std;
