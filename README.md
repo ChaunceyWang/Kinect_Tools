@@ -1,2 +1,2 @@
 # Kinect_Tools
-These are some codes about kinect,such as reading image and point clound data , converting to opencv Mat.
+These are some tools about kinect(including v1 and v2),such as reading image and point clound data , converting to opencv Mat.
